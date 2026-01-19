@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Medical file background -->
+  <rect width="64" height="64" rx="8" fill="#2c5f2d"/>
+  
+  <!-- Folded corner (white triangle) -->
+  <path d="M64 0L64 16L48 0L64 0Z" fill="white"/>
+  
+  <!-- Plus symbol (vertical bar) -->
+  <rect x="28" y="18" width="8" height="28" rx="2" fill="white"/>
+  
+  <!-- Plus symbol (horizontal bar) -->
+  <rect x="18" y="28" width="28" height="8" rx="2" fill="white"/>
+</svg>

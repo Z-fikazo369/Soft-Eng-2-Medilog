@@ -1,0 +1,827 @@
+/* client/src/styles/LandingPage.css */
+
+.landing-container {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  overflow-x: hidden;
+  background-color: var(--bg-body);
+  width: 100%;
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+/* --- NAVBAR (Transparent to Solid Animation) --- */
+.landing-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Initial State (Nasa taas pa) */
+  padding: 1.5rem 5%; /* Mas malaking padding sa simula */
+  background: transparent; /* ✅ Transparent muna */
+  box-shadow: none; /* Walang shadow */
+  border-bottom: 1px solid transparent;
+  height: 90px;
+
+  /* Fixed Position */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  /* Smooth Transition */
+  transition: all 0.4s ease-in-out;
+}
+
+/* --- SCROLLED STATE (Kapag bumaba ka na) --- */
+.landing-nav.scrolled {
+  /* Solid / Glass Effect */
+  background: var(--bg-nav); /* Kukunin yung kulay base sa Theme (White/Dark) */
+  backdrop-filter: blur(15px); /* Glass blur */
+  -webkit-backdrop-filter: blur(15px);
+
+  /* Paliitin konti para sleek */
+  padding: 0.8rem 5%;
+  height: 70px;
+
+  /* Lagyan ng shadow at border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--input-border);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* --- NAVBAR LOGO --- */
+.nav-logo-img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+/* Optional: Pwede mong paliitin din yung logo pag nag scroll */
+.landing-nav.scrolled .nav-logo-img {
+  width: 35px;
+  height: 35px;
+}
+
+.nav-title {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .nav-links.d-md-flex {
+    display: flex !important;
+  }
+}
+
+.nav-link-item {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.3s;
+  padding: 5px 10px;
+}
+
+.nav-link-item:hover {
+  color: var(--primary-color);
+}
+
+.btn-login-nav {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-login-nav:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* ✅ UPDATED PADDING: Tinaasan ang top padding (140px) para hindi matakpan ng fixed navbar */
+  padding: 140px 5% 80px;
+
+  min-height: 100vh; /* Ginawang 100vh para full screen impact */
+  background: var(--hero-gradient);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Pattern */
+.hero-background-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-pattern-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(var(--input-border) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.3;
+}
+
+.floating-shape {
+  position: absolute;
+  opacity: 0.15;
+  animation: floatShape 20s infinite alternate ease-in-out;
+}
+
+.shape-circle-1 {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  top: -100px;
+  left: -100px;
+  filter: blur(80px);
+}
+
+.shape-dots-1 {
+  width: 200px;
+  height: 200px;
+  bottom: 10%;
+  left: 40%;
+  background-image: radial-gradient(var(--primary-color) 2px, transparent 2px);
+  background-size: 15px 15px;
+  opacity: 0.4;
+  animation-duration: 15s;
+}
+
+@keyframes floatShape {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(40px, -40px) rotate(10deg);
+  }
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 650px;
+  z-index: 2;
+}
+
+.hero-badge {
+  background-color: var(--toggle-bg);
+  color: var(--primary-color);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 25px;
+  border: 1px solid var(--input-border);
+}
+
+.hero-headline {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.hero-subtitle-large {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-highlight);
+  margin-bottom: 20px;
+}
+
+.hero-subtext {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-get-started {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(25, 135, 84, 0.3);
+}
+
+.btn-get-started:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(25, 135, 84, 0.4);
+}
+
+.btn-learn-more {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--input-border);
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-learn-more:hover {
+  border-color: var(--text-primary);
+  background-color: var(--bg-card);
+}
+
+/* --- 3D ORBIT ANIMATION STYLES (UPDATED: TRUE 3D OVERLAP) --- */
+
+/* Container Setup - CRITICAL CHANGE HERE */
+.hero-visual-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px; /* Pinalaki para sa bigger orbits */
+  height: 750px; /* Mas mataas para full orbit visibility */
+  perspective: 1500px; /* Mas malalim ang 3D depth */
+  z-index: 2;
+  /* ✅ IMPORTANT: Ito ang nagpapa-activate ng totoong 3D space para mag-overlap */
+  transform-style: preserve-3d;
+  /* Optional: Temporary Border para makita mo boundaries habang nagde-debug */
+  /* border: 1px solid red; */
+}
+
+/* Central Logo - FIXED LAYERING */
+.orbit-center-logo {
+  position: relative;
+  /* ❌ REMOVED: z-index: 8; (Ito ang dahilan kaya laging nasa ibabaw dati) */
+
+  /* ✅ NEW: Push the logo back slightly in 3D space so items can pass in front */
+  transform: translateZ(-10px);
+
+  animation: floatLogo 6s ease-in-out infinite;
+  /* Ensure it participates in the 3D scene */
+  transform-style: preserve-3d;
+}
+
+.hero-logo-main {
+  width: 380px; /* Even bigger - from 320px -> 380px */
+  height: 380px;
+  object-fit: contain;
+  filter: drop-shadow(
+    0 10px 40px rgba(25, 135, 84, 0.8)
+  ); /* Mas malaking shadow para 3D depth */
+  background: var(--bg-card); /* White/DarkCard */
+  border-radius: 60px;
+  padding: 20px;
+  border: 3px solid rgba(25, 135, 84, 0.2);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  /* Ensure the image itself doesn't flatten */
+  transform-style: preserve-3d;
+}
+
+/* Glow Effect */
+.logo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Push glow further back so it doesn't cover orbiting items */
+  transform: translate(-50%, -50%) translateZ(-50px);
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(
+    circle,
+    rgba(25, 135, 84, 0.4) 0%,
+    transparent 60%
+  );
+  z-index: -1; /* Keep behind the logo image itself */
+  filter: blur(40px);
+}
+
+/* --- ORBIT RINGS (Mas Malalapad) --- */
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Mas visible na linya */
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+/* Ring 1 - Horizontal */
+.ring-1 {
+  width: 550px; /* Pinalaki from 420px */
+  height: 550px;
+  margin-top: -275px;
+  margin-left: -275px;
+  animation: rotateOrbit 14s linear infinite;
+  border-color: rgba(46, 204, 113, 0.3); /* Green tint */
+  z-index: 3;
+}
+
+/* Ring 2 - Vertical/Tilted */
+.ring-2 {
+  width: 700px; /* Pinalaki from 580px - much bigger para sa overlap */
+  height: 700px;
+  margin-top: -350px;
+  margin-left: -350px;
+  animation: rotateOrbitReverse 20s linear infinite;
+  border-color: rgba(52, 152, 219, 0.3); /* Blue tint */
+  z-index: 2;
+}
+
+/* Ring 3 - Diagonal */
+.ring-3 {
+  width: 420px; /* Pinalaki from 320px */
+  height: 420px;
+  margin-top: -210px;
+  margin-left: -210px;
+  animation: rotateOrbit 10s linear infinite;
+  border-style: dashed; /* Dashed style para maiba */
+  z-index: 4;
+}
+
+/* --- ORBIT ITEMS (Mas Malaki at Visible) --- */
+.orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  /* SIZE UPGRADE */
+  width: 80px; /* From 50px -> 80px */
+  height: 80px;
+
+  /* Better Visibility Background */
+  background: #ffffff; /* White background kahit dark mode para lumitaw */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* ENHANCED SHADOW/GLOW for 3D pop-out */
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(25, 135, 84, 0.4),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--primary-color);
+
+  font-size: 2.5rem; /* Icon size up */
+  color: var(--primary-color);
+  /* ❌ REMOVED: z-index: 5; (Let 3D depth handle layering automatically) */
+
+  /* Maintain 3D consistency */
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+
+  /* Counter-rotation */
+  animation: counterRotate 14s linear infinite;
+}
+
+/* Specific Item Styling */
+.item-1 i {
+  color: #e74c3c;
+} /* Red Capsule */
+.item-2 i {
+  color: #3498db;
+} /* Blue Heart */
+.item-3 i {
+  color: #f1c40f;
+} /* Yellow Shield */
+
+/* Positioning Icons on Rings (Adjusted for new sizes) */
+
+/* Ring 1 Item */
+.ring-1 .orbit-item {
+  margin-left: 275px; /* Half of 550px - position on edge of ring */
+  margin-top: -40px; /* Center vertically (half of 80px) */
+  animation-duration: 14s;
+}
+
+/* Ring 2 Item */
+.ring-2 .orbit-item {
+  margin-left: 350px; /* Half of 700px - position on edge of ring */
+  margin-top: -40px; /* Center vertically (half of 80px) */
+  background: #181a1b; /* Dark background for variety */
+  border-color: #3498db;
+  animation: counterRotateReverse 20s linear infinite;
+}
+/* Override icon color inside dark item to be visible */
+.ring-2 .orbit-item i {
+  color: #3498db;
+  text-shadow: 0 0 10px #3498db;
+}
+
+/* Ring 3 Item */
+.ring-3 .orbit-item {
+  margin-left: -210px; /* Half of 420px - position on edge of ring (negative for left side) */
+  margin-top: -30px; /* Center vertically (half of 60px) */
+  width: 60px; /* Slightly smaller for inner ring */
+  height: 60px;
+  font-size: 1.8rem;
+  animation-duration: 10s;
+}
+
+/* --- KEYFRAMES --- */
+@keyframes rotateOrbit {
+  0% {
+    transform: rotateX(50deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotateOrbitReverse {
+  0% {
+    transform: rotateX(130deg) rotateY(30deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(130deg) rotateY(30deg) rotateZ(-360deg);
+  }
+}
+
+@keyframes counterRotate {
+  0% {
+    transform: rotateZ(360deg) rotateX(-75deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateX(-75deg);
+  }
+}
+
+@keyframes counterRotateReverse {
+  0% {
+    transform: rotateZ(-360deg) rotateY(-15deg) rotateX(-105deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(-15deg) rotateX(-105deg);
+  }
+}
+
+@keyframes floatLogo {
+  0%,
+  100% {
+    transform: translateY(0) translateZ(-10px);
+  } /* Keep Z position during float */
+  50% {
+    transform: translateY(-20px) translateZ(-10px);
+  }
+}
+
+/* Dark Mode Specific Tweaks */
+[data-theme="dark"] .hero-logo-main {
+  background: #222; /* Darker background for logo container in dark mode */
+  border-color: #444;
+}
+
+/* --- FEATURES SECTION (HORIZONTAL GRID) --- */
+.features-section {
+  padding: 100px 5%;
+  background-color: var(--bg-body);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.title-underline {
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-color);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.features-grid {
+  display: grid;
+  /* 4 Columns horizontally */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: var(--bg-card);
+  padding: 30px 25px;
+  border-radius: 16px;
+  border: 1px solid var(--input-border);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px var(--shadow-color);
+  border-color: var(--primary-color);
+}
+
+.feature-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+/* Icon Colors */
+.icon-green {
+  background: rgba(25, 135, 84, 0.1);
+  color: var(--primary-color);
+}
+.icon-blue {
+  background: rgba(13, 110, 253, 0.1);
+  color: #0d6efd;
+}
+.icon-purple {
+  background: rgba(102, 16, 242, 0.1);
+  color: #6610f2;
+}
+.icon-orange {
+  background: rgba(253, 126, 20, 0.1);
+  color: #fd7e14;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* --- DESIGNED FOR SECTION --- */
+.designed-for-section {
+  padding: 100px 5%;
+  background: var(--hero-gradient);
+  overflow: hidden;
+}
+
+.designed-for-section .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.target-audience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.audience-item {
+  display: flex;
+  align-items: center;
+  padding: 20px 25px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--input-border);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s;
+  color: var(--text-primary);
+}
+
+.audience-item:hover {
+  transform: translateX(10px);
+  border-color: var(--primary-color);
+}
+
+.benefits-card {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px var(--shadow-color);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
+  margin-top: 20px;
+}
+
+.benefits-card h3 {
+  font-weight: 700;
+  color: var(--text-highlight);
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* --- PROGRAMMERS SECTION --- */
+.programmers-section {
+  padding: 100px 5%;
+  background: var(--bg-body);
+}
+
+.programmers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.programmer-card {
+  background: var(--bg-card);
+  padding: 40px 25px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid var(--input-border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.programmer-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px var(--shadow-color);
+  border-color: var(--primary-color);
+}
+
+.highlight-card {
+  border: 2px solid var(--primary-color);
+  background: linear-gradient(
+    180deg,
+    var(--bg-card) 0%,
+    rgba(25, 135, 84, 0.05) 100%
+  );
+  transform: scale(1.05);
+}
+.highlight-card:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.p-avatar {
+  width: 110px;
+  height: 110px;
+  margin-bottom: 25px;
+  background: var(--toggle-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  border: 3px solid var(--bg-card);
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.p-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.p-role {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-highlight);
+  font-weight: 600;
+  margin-bottom: 25px;
+  background: rgba(25, 135, 84, 0.1);
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.p-contact p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.p-contact i {
+  color: var(--primary-color);
+}
+
+/* --- FOOTER --- */
+.landing-footer {
+  text-align: center;
+  padding: 40px;
+  background: #0a0c0b;
+  color: #a0a0a0;
+  font-size: 0.95rem;
+  border-top: 1px solid #222;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 60px;
+    min-height: auto;
+  }
+  .hero-content {
+    margin-top: 60px;
+    max-width: 100%;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .hero-subtext {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .nav-links {
+    display: none;
+  }
+
+  .hero-visual-container {
+    max-width: 100%;
+  }
+  .hero-logo-main {
+    width: 250px;
+    height: 250px;
+  }
+}

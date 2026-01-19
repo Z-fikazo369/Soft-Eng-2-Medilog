@@ -1,0 +1,739 @@
+/* General body */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  overflow-y: auto;
+  flex-shrink: 0;
+  background-color: #2c5f2d;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sidebar h4 {
+  color: white !important;
+  font-weight: 700;
+}
+
+.sidebar .nav-link {
+  color: white !important;
+  margin: 5px 0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.sidebar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white !important;
+}
+
+.sidebar .nav-link i {
+  color: white !important;
+}
+
+/* Logout link styling - Position at bottom */
+.sidebar .logout-link {
+  color: white !important;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+  position: absolute;
+  bottom: 20px;
+  left: 12px;
+  right: 12px;
+}
+
+.sidebar .logout-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white !important;
+}
+
+/* Main content */
+.content {
+  background-color: #f8f9fa;
+  flex-grow: 1;
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* Cards */
+.card {
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  font-weight: 600;
+}
+
+/* ✅ *** IN-UPDATE NA OPTION CARD STYLES (VERTICAL at MALAPAD) *** */
+
+.option-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.option-cards {
+  display: flex;
+  flex-direction: column; /* ✅ IBINALIK SA COLUMN (VERTICAL) */
+  align-items: center; /* ✅ I-center 'yung cards */
+  gap: 2rem; /* Pagitan ng bawat card */
+  max-width: 700px; /* ✅ ITO 'YUNG LAPAD TULAD NG SA SCREENSHOT */
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.option-cards .col-md-4 {
+  width: 100%;
+  max-width: 700px; /* ✅ SINIGURADO ANG LAPAD */
+}
+
+.option-card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  width: 100%;
+  border: 1px solid #dee2e6;
+  border-left: 5px solid #2c5f2d; /* Green accent */
+  height: 100%;
+}
+
+.option-card .card-body {
+  padding: 2.5rem; /* ✅ PADDING PARA "PAHABAIN" */
+  /* Tinanggal 'yung text-center para sa d-flex */
+}
+
+.option-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(44, 95, 45, 0.15);
+  border-color: #2c5f2d;
+}
+
+/* Styles para sa icon, text, at arrow */
+.option-card-icon {
+  font-size: 3rem;
+  line-height: 1;
+  margin-right: 1.5rem; /* Space sa pagitan ng icon at text */
+}
+
+.option-card .card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #2c5f2d; /* Green ang title */
+}
+
+.option-card .text-muted {
+  font-size: 1rem;
+}
+
+.option-card-arrow {
+  font-size: 1.5rem;
+  color: #adb5bd;
+  transition: transform 0.2s, color 0.2s;
+  margin-left: 1rem; /* Space bago ang arrow */
+}
+
+.option-card:hover .option-card-arrow {
+  transform: translateX(5px);
+  color: #2c5f2d;
+}
+
+/* ✅ *** END NG OPTION CARD STYLES *** */
+
+/* ISU Style Table */
+.isu-style-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.isu-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.isu-row:hover {
+  background: #f9fbff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07);
+}
+
+.isu-col.index {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #495057;
+  min-width: 40px;
+}
+
+.isu-col.main {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.isu-title {
+  font-size: 1.05rem;
+  color: #212529;
+}
+
+.isu-meta {
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin-top: 0.2rem;
+}
+
+.isu-date {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: #868e96;
+}
+
+.isu-col.status {
+  min-width: 120px;
+  text-align: right;
+}
+
+.badge {
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+}
+
+/* Visit History Container */
+.visit-history-section {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.visit-history-section .section-title {
+  background-color: #2e7d32;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 10px 15px;
+}
+
+.visit-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 1px solid #ddd;
+  padding: 12px 15px;
+  font-size: 1rem;
+}
+
+.visit-card:first-of-type {
+  border-top: none;
+}
+
+.visit-details {
+  flex: 1;
+}
+
+.visit-status {
+  font-weight: 600;
+  color: #444;
+  text-transform: capitalize;
+}
+
+/* Profile Picture Upload Styles */
+.profile-picture-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-picture-edit-icon {
+  display: none;
+}
+
+.profile-picture-container:hover .profile-picture-edit-icon {
+  display: none;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1040;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 0;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 0;
+  background-color: #2c5f2d;
+}
+
+.modal-header h5 {
+  margin: 0;
+  font-weight: 600;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.modal-title {
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.btn-close {
+  display: none;
+}
+
+.modal-body {
+  padding: 2rem 1.75rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid #dee2e6;
+  padding: 1.5rem 1.75rem;
+  margin-top: 0;
+  background-color: #f8f9fa;
+  border-radius: 0 0 12px 12px;
+}
+
+.btn-close {
+  display: none !important;
+}
+
+.btn-close:hover {
+  display: none;
+}
+
+.btn-close::before {
+  display: none;
+}
+
+/* Profile Page Styles */
+.profilePage {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.profile-avatar-container {
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2c5f2d;
+  display: block;
+}
+
+.profile-avatar-edit-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: rgba(44, 95, 45, 0.9);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border: 2px solid white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-avatar-container:hover .profile-avatar-edit-icon {
+  opacity: 1;
+}
+
+.profile-avatar-container:hover .profile-avatar {
+  filter: brightness(0.9);
+}
+
+.profile-header h4 {
+  margin: 0;
+  font-weight: 600;
+  color: #2c5f2d;
+}
+
+.profile-header p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.profile-list-group {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.profile-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-list-item:last-child {
+  border-bottom: none;
+}
+
+.profile-list-item-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.profile-list-item-value {
+  font-weight: 600;
+  color: #212529;
+}
+
+/* Upload Drop Zone Styles */
+.upload-drop-zone {
+  border: 2px dashed #dee2e6;
+  border-radius: 10px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.upload-drop-zone.is-dragging {
+  border-color: #2c5f2d;
+  background-color: #e8f5e9;
+  transform: scale(1.02);
+}
+
+.upload-icon {
+  font-size: 4rem;
+  color: #2c5f2d;
+  margin-bottom: 1.5rem;
+}
+
+.upload-drop-zone p {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.1rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.upload-drop-zone .upload-formats {
+  display: block;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+
+.upload-drop-zone .btn-browse {
+  background-color: #2c5f2d;
+  color: white;
+  border: none;
+  padding: 0.65rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.upload-drop-zone .btn-browse:hover {
+  background-color: #1f4620;
+  transform: translateY(-2px);
+}
+
+.file-preview {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  background-color: #e8f5e9;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #2c5f2d;
+  font-weight: 600;
+  border: 1px solid #c8e6c9;
+}
+
+/* Alert Styles */
+.alert {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .visit-card {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.95rem;
+  }
+  .visit-status {
+    margin-top: 6px;
+    align-self: flex-end;
+  }
+  .section-title {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .modal-content {
+    max-width: 90%;
+    margin: 0 1rem;
+  }
+  .upload-drop-zone {
+    padding: 2rem 1rem;
+  }
+  .upload-icon {
+    font-size: 3rem;
+  }
+
+  /* Para mag-stack 'yung option cards sa mobile */
+  .option-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .option-card-wrapper {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .visit-card {
+    padding: 10px 12px;
+  }
+  .section-title {
+    font-size: 0.95rem;
+  }
+  .modal-header {
+    padding: 1rem;
+  }
+  .modal-body {
+    padding: 1rem;
+  }
+  .modal-footer {
+    padding: 1rem;
+  }
+}
+
+/* --- Pagination Styles --- */
+.pagination .page-item.active .page-link {
+  background-color: #2c5f2d;
+  border-color: #2c5f2d;
+  color: white;
+}
+
+.pagination .page-link {
+  color: #2c5f2d;
+  transition: all 0.2s ease-in-out;
+}
+
+.pagination .page-link:hover {
+  background-color: #e8f5e9;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #6c757d;
+  background-color: #e9ecef;
+}
+
+/* STYLES PARA SA HISTORY DROPDOWN (WALANG HOVER) */
+.history-filter-dropdown .dropdown-toggle {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: white;
+  border: 1px solid #dee2e6;
+  color: #212529;
+  min-width: 280px;
+  text-align: left !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-filter-dropdown .dropdown-toggle:hover,
+.history-filter-dropdown .dropdown-toggle:focus {
+  background-color: #f8f9fa;
+  color: #212529;
+  border-color: #dee2e6;
+  box-shadow: none;
+}
+
+.history-filter-dropdown .dropdown-toggle.show {
+  background-color: #f8f9fa;
+  color: #212529;
+  border-color: #dee2e6;
+}
+
+.history-filter-dropdown .dropdown-menu {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #dee2e6;
+  padding: 0.5rem 0;
+  min-width: 280px;
+}
+
+.history-filter-dropdown .dropdown-item {
+  color: #2c5f2d;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  transition: none !important;
+  background-color: transparent !important;
+}
+
+.history-filter-dropdown .dropdown-item:hover {
+  color: #2c5f2d !important;
+  background-color: transparent !important;
+}
+
+.history-filter-dropdown .dropdown-item.active,
+.history-filter-dropdown .dropdown-item:active {
+  background-color: #e9ecef !important;
+  color: #212529 !important;
+}
+
+/* STYLES PARA SA NOTIFICATION PAGE */
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  background-color: #fff;
+  transition: background-color 0.2s;
+}
+
+/* Ito 'yung unread style */
+.notification-item.unread {
+  background-color: #e8f5e9; /* Light green background */
+  border-color: #c8e6c9;
+}
+
+.notification-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.notification-content p {
+  font-weight: 500;
+  color: #212529;
+  margin: 0;
+}
+
+.notification-content small {
+  font-size: 0.85rem;
+}
+
+/* ✅ *** ITO 'YUNG FIX PARA SA BOLDNESS NG DIAGNOSIS/REMARKS *** */
+.isu-admin-notes {
+  font-size: 0.9rem;
+  color: #333;
+  background-color: #f8f9fa;
+  border-left: 3px solid #2c5f2d;
+  padding: 8px 12px;
+  margin-top: 10px;
+}
+
+.isu-admin-notes strong {
+  font-weight: 600; /* Ginawang semi-bold (mula sa default na bold 700) */
+  color: #212529; /* Medyo mas dark 'yung label */
+}

@@ -1,0 +1,379 @@
+adminportal.css
+/* Admin Portal Specific Styles */
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  overflow-y: auto;
+  flex-shrink: 0;
+  background-color: #2c5f2d;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  color: white;
+
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.sidebar > .nav.flex-column {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .nav-item.mt-4 {
+  margin-top: auto !important;
+  margin-bottom: 20px;
+}
+/* End Sidebar Fix */
+
+.sidebar h4 {
+  color: white !important;
+}
+
+.sidebar .nav-link {
+  color: white !important;
+  margin: 5px 0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white !important;
+  transform: translateX(5px);
+}
+
+/* Dropdown styling */
+.nav-item.dropdown {
+  position: relative;
+}
+
+.nav-item.dropdown .dropdown-menu {
+  position: static !important;
+  transform: none !important;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.nav-item.dropdown.show > .dropdown-menu,
+.nav-item.dropdown .dropdown-menu.show {
+  display: block !important;
+  margin-bottom: 10px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sidebar .dropdown-menu .dropdown-item {
+  color: #2c5f2d;
+  padding: 8px 15px;
+  transition: all 0.2s;
+}
+
+.sidebar .dropdown-menu .dropdown-item:hover {
+  background-color: rgba(44, 95, 45, 0.1);
+  border-radius: 6px;
+  transform: translateX(3px);
+}
+
+/* Main content */
+.content {
+  background-color: #f8f9fa;
+  flex-grow: 1;
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* Cards */
+.card {
+  border-radius: 12px;
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-header {
+  font-weight: 600;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Table improvements */
+.table-responsive {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.table thead th {
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  background: inherit;
+  z-index: 10;
+}
+
+.table tbody td {
+  vertical-align: middle;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(44, 95, 45, 0.05) !important;
+}
+
+/* Buttons */
+.btn {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Modal Styles */
+.modal {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-dialog {
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-footer {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Badges */
+.badge {
+  padding: 6px 12px;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+/* Form Controls */
+.form-control,
+.form-select {
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  transition: all 0.3s;
+}
+
+/* STYLES PARA SA UPLOAD (KINOPYA MULA SA STUDENT PORTAL) */
+
+/* Upload Drop Zone Styles */
+.upload-drop-zone {
+  border: 2px dashed #dee2e6;
+  border-radius: 10px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.upload-drop-zone.is-dragging {
+  border-color: #2c5f2d;
+  background-color: #e8f5e9;
+  transform: scale(1.02);
+}
+
+.upload-icon {
+  font-size: 4rem;
+  color: #2c5f2d;
+  margin-bottom: 1.5rem;
+}
+
+.upload-drop-zone p {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.1rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.upload-drop-zone .upload-formats {
+  display: block;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+
+.upload-drop-zone .btn-browse {
+  background-color: #2c5f2d;
+  color: white;
+  border: none;
+  padding: 0.65rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.upload-drop-zone .btn-browse:hover {
+  background-color: #1f4620;
+  transform: translateY(-2px);
+}
+
+.file-preview {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  background-color: #e8f5e9;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #2c5f2d;
+  font-weight: 600;
+  border: 1px solid #c8e6c9;
+}
+
+/* ✅ *** IDINAGDAG NA STYLES PARA SA ACTION BUTTONS SA TABLE *** */
+.table .actions-cell {
+  min-width: 120px;
+  text-align: center;
+  white-space: nowrap; /* Para hindi mag-wrap 'yung buttons */
+}
+
+.table .actions-cell .btn-sm {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+}
+.pagination-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.pagination-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid #2c5f2d;
+  background-color: #fff;
+  color: #2c5f2d;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+}
+
+.pagination-btn:disabled {
+  border-color: #ccc;
+  background-color: #f9f9f9;
+  color: #aaa;
+  cursor: not-allowed;
+}
+/* ✅ STYLES PARA SA SORTABLE TABLE HEADERS */
+.table th.th-sortable {
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap; /* Para hindi mag-wrap 'yung header at icon */
+}
+
+.table th.th-sortable:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Light hover effect */
+}
+
+.table th.th-sortable i {
+  margin-left: 5px;
+  font-size: 0.9em;
+  color: #999; /* Muted color para sa icon */
+}
+
+/* Kapag active ang sorting sa column na 'to */
+.table th.th-sortable.active {
+  background-color: rgba(44, 95, 45, 0.1); /* Lighter green */
+}
+
+.table th.th-sortable.active i {
+  color: #2c5f2d; /* Dark green (active) */
+}
+.sort-priority {
+  font-size: 0.7em;
+  font-weight: bold;
+  vertical-align: super;
+  margin-left: 3px;
+  color: #2c5f2d;
+  background-color: rgba(44, 95, 45, 0.15);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
